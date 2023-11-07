@@ -8,7 +8,7 @@ public class ValidadorDeSenha {
 		
 		String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
 		
-		boolean contemCaracter = true;
+		boolean contemCaracter = false;
 		
 		Scanner tl = new Scanner(System.in);
 		System.out.println("Defina sua senha: \n"
@@ -29,8 +29,8 @@ public class ValidadorDeSenha {
 			for (int i = 0; i < caracteres.length(); i++) {
 				char caracter = caracteres.charAt(i);
 				
-				if (!senhaUsuario.contains(String.valueOf(caracter))) {
-				contemCaracter = false;
+				if (senhaUsuario.contains(String.valueOf(caracter))) {
+				contemCaracter = true;
 				break;
 				}
 				
