@@ -6,6 +6,10 @@ public class ValidadorDeSenha {
 
 	public static void main(String[] args) {
 		
+		String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+		
+		boolean contemCaracter = true;
+		
 		Scanner tl = new Scanner(System.in);
 		System.out.println("Defina sua senha: \n"
 				+ "\n"
@@ -17,10 +21,26 @@ public class ValidadorDeSenha {
 				+ "Um caractere especial (!@#$%^&*)\n"
 				+ "\n");
 		String senhaUsuario = tl.next();
+		tl.close();
+		System.out.println();
 		
 		if (senhaUsuario.length() >= 6 && senhaUsuario.length() <= 16 ) {
 			
-			System.out.println("número de caracteres aceitavel");
+			for (int i = 0; i < caracteres.length(); i++) {
+				char caracter = caracteres.charAt(i);
+				
+				if (!senhaUsuario.contains(String.valueOf(caracter))) {
+				contemCaracter = false;
+				break;
+				}
+				
+			}
+			
+			if (contemCaracter) {
+				System.out.println("A senha " + senhaUsuario + " é válida!");
+			} else {
+				System.out.println("A senha " + senhaUsuario + " não contém os caracteres necessários...");
+			}
 			
 		} else  if (senhaUsuario.length() < 6){
 			
